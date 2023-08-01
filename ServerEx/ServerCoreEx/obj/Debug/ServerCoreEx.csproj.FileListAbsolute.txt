@@ -1,0 +1,14 @@
+C:\Users\kim\source\repos\ServerEx\ServerCoreEx\bin\Debug\ServerCoreEx.exe.config
+C:\Users\kim\source\repos\ServerEx\ServerCoreEx\bin\Debug\ServerCoreEx.exe
+C:\Users\kim\source\repos\ServerEx\ServerCoreEx\bin\Debug\ServerCoreEx.pdb
+C:\Users\kim\source\repos\ServerEx\ServerCoreEx\obj\Debug\ServerCoreEx.csproj.AssemblyReference.cache
+C:\Users\kim\source\repos\ServerEx\ServerCoreEx\obj\Debug\ServerCoreEx.csproj.CoreCompileInputs.cache
+C:\Users\kim\source\repos\ServerEx\ServerCoreEx\obj\Debug\ServerCoreEx.exe
+C:\Users\kim\source\repos\ServerEx\ServerCoreEx\obj\Debug\ServerCoreEx.pdb
+C:\Users\kim\source\repos\server_study\ServerEx\ServerCoreEx\obj\Debug\ServerCoreEx.csproj.AssemblyReference.cache
+C:\Users\kim\source\repos\server_study\ServerEx\ServerCoreEx\obj\Debug\ServerCoreEx.csproj.CoreCompileInputs.cache
+C:\Users\kim\source\repos\server_study\ServerEx\ServerCoreEx\obj\Debug\ServerCoreEx.exe
+C:\Users\kim\source\repos\server_study\ServerEx\ServerCoreEx\obj\Debug\ServerCoreEx.pdb
+C:\Users\kim\source\repos\server_study\ServerEx\ServerCoreEx\bin\Debug\ServerCoreEx.exe.config
+C:\Users\kim\source\repos\server_study\ServerEx\ServerCoreEx\bin\Debug\ServerCoreEx.exe
+C:\Users\kim\source\repos\server_study\ServerEx\ServerCoreEx\bin\Debug\ServerCoreEx.pdb
