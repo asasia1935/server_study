@@ -17,7 +17,7 @@ namespace ServerCoreEx
         {
             Console.WriteLine("쓰레드 시작");
 
-            while(_stop == false) // 누군가 stop을 true로 바꾸도록 기다린다
+            while (_stop == false) // 누군가 stop을 true로 바꾸도록 기다린다
             {
                 // Debug 모드가 아니라 게임의 실제 버전에선 Release 모드로 실행됨
                 // 그러면 멀티쓰레드에서 안되는 경우가 생김 (지금 실습에선 되는데 원래 안됨)
