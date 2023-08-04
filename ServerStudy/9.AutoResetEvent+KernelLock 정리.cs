@@ -29,8 +29,8 @@ namespace ServerCoreEx
         }
     }
 
-   // 실제로 해당 코드를 돌려보면 아까 방식에 비해서 확연히 느려진 것을 알 수 있다.
-   // 이는 커널모드까지 가야하는 부하가 더 심해졌기 때문이다.
+    // 실제로 해당 코드를 돌려보면 아까 방식에 비해서 확연히 느려진 것을 알 수 있다.
+    // 이는 커널모드까지 가야하는 부하가 더 심해졌기 때문이다.
 
     class Program
     {
@@ -46,7 +46,7 @@ namespace ServerCoreEx
 
         static void Thread_1()
         {
-            for(int i = 0; i < 100000; i++)
+            for (int i = 0; i < 100000; i++)
             {
                 /* _lock.Acquire();
                    _num--;
