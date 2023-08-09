@@ -1,0 +1,28 @@
+Lock 구현의 3가지 방법
+
+1. 근성
+2. 양보 
+3. 갑질
+
+3가지가 절대적으로 좋은게 없다 + Lock은 여러 방법을 혼합해서 만드는 경우가 많음
+참고로 SpinLock은 근성과 양보를 합친 느낌 (중간에 쉬다 오는게 더 이득이기 때문)
+
+ex)
+// Monitor
+static object _lock = new object();
+static SpinLock _lock = new SpinLock();
+// 직접 만든다
+
+static void Main(string[] args)
+{
+    lock (_lock)
+    {    }
+
+    bool lockTaken = false;
+    try {
+        _lock2.Enter(ref lockTaken);
+    }
+    finally {
+        if (lockTaken)
+            _lock2.Exit();
+    }
