@@ -1,0 +1,8 @@
+C:\Users\kim\source\repos\server_study\ServerEx\ServerEx\bin\Debug\ServerEx.exe.config
+C:\Users\kim\source\repos\server_study\ServerEx\ServerEx\bin\Debug\ServerEx.exe
+C:\Users\kim\source\repos\server_study\ServerEx\ServerEx\bin\Debug\ServerEx.pdb
+C:\Users\kim\source\repos\server_study\ServerEx\ServerEx\obj\Debug\ServerEx.csproj.AssemblyReference.cache
+C:\Users\kim\source\repos\server_study\ServerEx\ServerEx\obj\Debug\ServerEx.csproj.SuggestedBindingRedirects.cache
+C:\Users\kim\source\repos\server_study\ServerEx\ServerEx\obj\Debug\ServerEx.csproj.CoreCompileInputs.cache
+C:\Users\kim\source\repos\server_study\ServerEx\ServerEx\obj\Debug\ServerEx.exe
+C:\Users\kim\source\repos\server_study\ServerEx\ServerEx\obj\Debug\ServerEx.pdb
