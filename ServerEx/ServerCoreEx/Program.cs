@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,36 +9,55 @@ namespace ServerCoreEx
 {
     class Program
     {
-        static ThreadLocal<string> ThreadName = new ThreadLocal<string>(() => { return $"My Name is {Thread.CurrentThread.ManagedThreadId}"; }); // 모든 쓰레드들은 얘를 공유해서 사용 -> ThreadLocal을 씌워서 TLS 영역으로 넣음
-        // 쓰레드마다 접근해도 자신만의 공간에 저장이 되서 다른 애들한테 영향 x -> Lock을 걸지 않아도 됨
-        // 안에 람다를 넣었는데 ThreadName이 세팅이 안되있으면 안이 실행이 되고 그게 아니라면 원래 밸류를 사용하면 됨
-
-        // static string ThreadName; // 이렇게 하면 모든 쓰레드 네임의 값이 같아져버리게 됨
-
-        // JobQueue에서 일감을 빼올 때 TLS에 최대한 많이 들고와서 작업하면 좋음 
-
-        static void WhoAmI()
-        {
-            // ThreadName.Value = $"My Name is {Thread.CurrentThread.ManagedThreadId}";
-
-            bool repeat = ThreadName.IsValueCreated; // 이미 만들어져 있었으면 true
-            // 위에서 넣은 람다의 체크
-            if (repeat)
-                Console.WriteLine(ThreadName.Value + " (repeat)");
-            else
-                Console.WriteLine(ThreadName.Value);
-
-            Thread.Sleep(1000);
-        }
-
         static void Main(string[] args)
         {
-            ThreadPool.SetMinThreads(1, 1);
-            ThreadPool.SetMaxThreads(3, 3);
-            Parallel.Invoke(WhoAmI, WhoAmI, WhoAmI, WhoAmI, WhoAmI, WhoAmI, WhoAmI);
-            // Invoke는 넣어준 액션 만큼 Task로 만들어서 실행
+            // DNS (Domain Name System)
+            // www.어쩌구저쩌구.com -> 123.123.123.12
+            string host = Dns.GetHostName(); // 로컬 컴퓨터의 호스트 이름
+            IPHostEntry ipHost = Dns.GetHostEntry(host);
+            IPAddress ipAddr = ipHost.AddressList[0]; // 아이피 호스트들의 배열 (식당 주소)
+            IPEndPoint endPoint = new IPEndPoint(ipAddr, 7777); // 최종 주소 설정 (포트 번호는 해당 식당의 여러 문 중 하나)
 
-            ThreadName.Dispose(); // 쓰레드 네임 날려주기
+            // 문지기가 가진 휴대폰
+            Socket listenSocket = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+
+            try
+            {
+                // 문지기 교육
+                listenSocket.Bind(endPoint);
+
+                // 영업 시작
+                // backlog : 최대 대기수 -> live에서 조절
+                listenSocket.Listen(10);
+
+                while (true)
+                {
+                    Console.WriteLine("Listening...");
+
+                    // 손님을 입장 시킨다
+                    Socket clientSocket = listenSocket.Accept(); // 세션의 소켓 -> 입장한 손님과 이 소켓으로 대화를 하면 됨
+                    // 손님이 없으면 이 줄에서 계속 대기 (Accept가 일종의 블락 함수임)
+
+                    // 받는다
+                    byte[] recvBuffer = new byte[1024]; // 받을 내용을 저장
+                    int recvBytes = clientSocket.Receive(recvBuffer);
+                    string recvData = Encoding.UTF8.GetString(recvBuffer, 0 /* 시작 인덱스 */, recvBytes /* 문자열 크기 */); // 방금 받은 애를 string으로 변환
+                    Console.WriteLine($"[From Client] {recvData}");
+
+                    // 보낸다
+                    byte[] sendBuffer = Encoding.UTF8.GetBytes("Welcome to MMORPG Server !"); // 보낼 버퍼는 몇개짜리를 보낼걸 알고 있으니 바로 만들어주면 됨
+                    clientSocket.Send(sendBuffer);
+
+                    // 쫒아낸다
+                    clientSocket.Shutdown(SocketShutdown.Both); // 더이상 소통하지 않는다는 것을 전달
+                    clientSocket.Close(); // 연결 종료
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+
         }
     }
 }

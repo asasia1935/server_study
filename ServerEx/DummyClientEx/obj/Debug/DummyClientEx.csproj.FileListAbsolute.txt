@@ -1,0 +1,8 @@
+C:\Users\kim\source\repos\server_study\ServerEx\DummyClientEx\bin\Debug\DummyClientEx.exe.config
+C:\Users\kim\source\repos\server_study\ServerEx\DummyClientEx\bin\Debug\DummyClientEx.exe
+C:\Users\kim\source\repos\server_study\ServerEx\DummyClientEx\bin\Debug\DummyClientEx.pdb
+C:\Users\kim\source\repos\server_study\ServerEx\DummyClientEx\obj\Debug\DummyClientEx.csproj.AssemblyReference.cache
+C:\Users\kim\source\repos\server_study\ServerEx\DummyClientEx\obj\Debug\DummyClientEx.csproj.SuggestedBindingRedirects.cache
+C:\Users\kim\source\repos\server_study\ServerEx\DummyClientEx\obj\Debug\DummyClientEx.csproj.CoreCompileInputs.cache
+C:\Users\kim\source\repos\server_study\ServerEx\DummyClientEx\obj\Debug\DummyClientEx.exe
+C:\Users\kim\source\repos\server_study\ServerEx\DummyClientEx\obj\Debug\DummyClientEx.pdb
